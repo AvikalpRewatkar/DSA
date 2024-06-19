@@ -14,24 +14,24 @@ public class GraphUsingArray {
     static int finish[];
 
     public static void main(String[] args) {
-        
+
         int[][] graph1 = {
-            {0, 1, 0, 1, 1, 0},
-            {1, 0, 1, 0, 0, 1},
-            {0, 1, 0, 0, 1, 1},
-            {1, 0, 0, 0, 0, 1},
-            {1, 0, 1, 0, 0, 0},
-            {0, 1, 1, 1, 0, 0}
+                { 0, 1, 0, 1, 1, 0 },
+                { 1, 0, 1, 0, 0, 1 },
+                { 0, 1, 0, 0, 1, 1 },
+                { 1, 0, 0, 0, 0, 1 },
+                { 1, 0, 1, 0, 0, 0 },
+                { 0, 1, 1, 1, 0, 0 }
         };
         int graph2[][] = {
-            { 0, 1, 1, 1, 0, 0, 0 },
-            { 1, 0, 0, 0, 1, 0, 0 },
-            { 1, 0, 0, 0, 1, 1, 0 },
-            { 1, 0, 0, 0, 0, 1, 0 },
-            { 0, 1, 1, 0, 0, 0, 1 },
-            { 0, 0, 1, 1, 0, 0, 1, },
-            { 0, 0, 0, 0, 1, 1, 0 }
-    };
+                { 0, 1, 1, 1, 0, 0, 0 },
+                { 1, 0, 0, 0, 1, 0, 0 },
+                { 1, 0, 0, 0, 1, 1, 0 },
+                { 1, 0, 0, 0, 0, 1, 0 },
+                { 0, 1, 1, 0, 0, 0, 1 },
+                { 0, 0, 1, 1, 0, 0, 1, },
+                { 0, 0, 0, 0, 1, 1, 0 }
+        };
 
         bfs(graph1);
         bfs(graph2);
@@ -41,11 +41,11 @@ public class GraphUsingArray {
     // BFS Algo
     private static void bfs(int[][] graph) {
         int noOfNodes = graph.length;
-        
-        //colour[i] = -1 (unvisited) (white)
-        //          0 (exploring...) (grey)
-        //          1 (explored)     (black)
-        color= new int[noOfNodes];
+
+        // colour[i] = -1 (unvisited) (white)
+        // 0 (exploring...) (grey)
+        // 1 (explored) (black)
+        color = new int[noOfNodes];
 
         // distance[i] = defines distance of node from source
         distance = new double[noOfNodes];
@@ -54,10 +54,10 @@ public class GraphUsingArray {
         parent = new int[noOfNodes];
 
         int source = 0;
-        
+
         // Need Queue Data structure
         Queue<Integer> q = new LinkedList<>();
-        for (int i = 1; i<noOfNodes; i++) {
+        for (int i = 1; i < noOfNodes; i++) {
             color[i] = -1;
             distance[i] = Double.POSITIVE_INFINITY;
             parent[i] = -1;
@@ -69,15 +69,15 @@ public class GraphUsingArray {
         // Checking if colour distance parent are initialized properly.
 
         // for (int i = 0; i < noOfNodes; i++) {
-        //     System.out.print(colour[i] + " ");
+        // System.out.print(colour[i] + " ");
         // }
         // System.out.println();
         // for (int i = 0; i < noOfNodes; i++) {
-        //     System.out.print(distance[i] + " ");
+        // System.out.print(distance[i] + " ");
         // }
         // System.out.println();
         // for (int i = 0; i < noOfNodes; i++) {
-        //     System.out.print(parent[i] + " ");
+        // System.out.print(parent[i] + " ");
         // }
         // System.out.println();
 
@@ -89,7 +89,7 @@ public class GraphUsingArray {
             System.out.print(u + " ");
 
             for (int i = 0; i < noOfNodes; i++) {
-                if (graph[u][i] == 1) {        
+                if (graph[u][i] == 1) {
                     if (color[i] == -1) {
                         color[i] = 0;
                         distance[i] = distance[u] + 1;
@@ -108,7 +108,7 @@ public class GraphUsingArray {
         int noOfNodes = graph.length;
         color = new int[noOfNodes];
         parent = new int[noOfNodes];
-        discovery= new int[noOfNodes];
+        discovery = new int[noOfNodes];
         finish = new int[noOfNodes];
 
         color[0] = -1;
@@ -127,7 +127,8 @@ public class GraphUsingArray {
         System.out.println("Color: ");
         for (int i = 0; i < noOfNodes; i++) {
             System.out.print(color[i] + " ");
-        }System.out.println();
+        }
+        System.out.println();
 
         System.out.println("Parent: ");
         for (int i = 0; i < noOfNodes; i++) {
@@ -148,7 +149,8 @@ public class GraphUsingArray {
         System.out.println();
     }
 
-    private static void dfs_visit(int[][] graph, int noOfNodes, int[] color, int[] parent, int[] discovery, int finish[], int u) {
+    private static void dfs_visit(int[][] graph, int noOfNodes, int[] color, int[] parent, int[] discovery,
+            int finish[], int u) {
         color[u] = 0;
         time++;
         discovery[u] = time;
@@ -201,6 +203,7 @@ public class GraphUsingArray {
         sc.close();
         return graph;
     }
+
     // used to add edges
     static void addEdge(int graph[][], int from, int to) {
         if (graph[from][to] == 1) {
