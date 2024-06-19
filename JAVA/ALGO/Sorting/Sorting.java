@@ -1,4 +1,4 @@
-package ALGO;
+package ALGO.Sorting;
 
 public class Sorting {
     public static void main(String[] args) {
